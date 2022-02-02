@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.5 on darwin)" generated="20220203 01:18:45.992" rpa="false" schemaversion="2">
+<suite id="s1" name="Testcases" source="/Users/panreyarukpiyawanich/BitbucketRepo/test_central_tech/testcases">
+<suite id="s1-s1" name="Search Api" source="/Users/panreyarukpiyawanich/BitbucketRepo/test_central_tech/testcases/search_api.robot">
+<test id="s1-s1-t1" name="SEARCH_API_TC01">
+<kw name="GIVEN Set Test Variables '${TEST_NAME}'" library="search_api_keywords" sourcename="Set Test Variables '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-newrelic-id}</arg>
+<arg>${${data}.x_newrelic_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.308" level="INFO">${x-newrelic-id} = VQMOUF5SABAHVlRQAAIAVFc=</msg>
+<status status="PASS" starttime="20220203 01:18:46.306" endtime="20220203 01:18:46.308"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-store-code}</arg>
+<arg>${${data}.x_store_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.311" level="INFO">${x-store-code} = en</msg>
+<status status="PASS" starttime="20220203 01:18:46.308" endtime="20220203 01:18:46.311"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${searchQuery}</arg>
+<arg>${${data}.searchQuery}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.313" level="INFO">${searchQuery} = หนังสือ</msg>
+<status status="PASS" starttime="20220203 01:18:46.311" endtime="20220203 01:18:46.313"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${limit}</arg>
+<arg>${${data}.limit}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.316" level="INFO">${limit} = 25</msg>
+<status status="PASS" starttime="20220203 01:18:46.313" endtime="20220203 01:18:46.316"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${page}</arg>
+<arg>${${data}.page}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.318" level="INFO">${page} = 1</msg>
+<status status="PASS" starttime="20220203 01:18:46.316" endtime="20220203 01:18:46.318"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${https_status}</arg>
+<arg>${${data}.https_status}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.320" level="INFO">${https_status} = 200</msg>
+<status status="PASS" starttime="20220203 01:18:46.318" endtime="20220203 01:18:46.320"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.305" endtime="20220203 01:18:46.320"/>
+</kw>
+<kw name="AND Call Get Search Product List" library="search_api_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${param}</var>
+<arg>searchQuery=${searchQuery}</arg>
+<arg>limit=${limit}</arg>
+<arg>page=${page}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.322" level="INFO">${param} = {'searchQuery': 'หนังสือ', 'limit': '25', 'page': '1'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.321" endtime="20220203 01:18:46.322"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>x-newrelic-id=${x-newrelic-id}</arg>
+<arg>x-store-code=${x-store-code}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.322" level="INFO">${header} = {'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.322" endtime="20220203 01:18:46.322"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${endpoint}</arg>
+<arg>${param}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=${https_status}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220203 01:18:46.419" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD&amp;limit=25&amp;page=1 
+ path_url=/api/search/products?searchQuery=%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD&amp;limit=25&amp;page=1 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'} 
+ body=None 
+ </msg>
+<msg timestamp="20220203 01:18:46.420" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD&amp;limit=25&amp;page=1 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"61a72-5EzLJhlquDVo64lvBLH0yNLRTag"', 'Content-Encoding': 'gzip', 'Content-Length': '26143', 'Cache-Control': 'public, max-age=89', 'Expires': 'Wed, 02 Feb 2022 18:20:15 GMT', 'Date': 'Wed, 02 Feb 2022 18:18:46 GMT', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":520,"products":[{"id":92704,"type_id":"simple","name":"กำแพงกลางหนังสือ","brand_name":"B2S","small_image":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg","image":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg","thumbnail":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg","url_key":"b2s-กำแพงกลางหนังสือ-mkp0260941","attribute_set_id":4,"visibility":4,"status":1,"category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":287,"name":"School &amp; Entertainment","level":2,"parent_id":2,"url_key":"education-entertainment","url_path":"education-entertainment","is_parent":true},{"category_id":793,"name":"Thai Books","level":3,"parent_id":287,"url_key":"thai-books","url_path":"education-entertainment/thai-books","is_parent":true},{"category_id":1223,"name":"Children Books","level":4,"parent_id":793,"url_key":"children-books","url_path":"education-entertainment/thai-books/children-books","is_parent":true}],"price":135,"tier_prices":[{"price":106,"original_price":135,"customer_group_id":0,"is_discount":true},{"price":106,"original_price":135,"customer_group_id":1,"is_discount":true},{"price":106,"original_price":135,"customer_group_id":2,"is_discount":true},{"price":106,"original_price":135,"customer_group_id":3,"is_discount":true},{"price":106,"original_price":135,"customer_group_id":4,"is_discount":true},{"price":106,"original_price":135,"customer_group_id":5,"is_discount":true}],"special_price":106,"special_from_date":"2022-02-01T00:00:00","special_to_date":"2022-02-07T23:59:59","stock":{"qty":2,"is_in_stock":true},"score":42.822178,"custom_attributes_option":[{"attribute_code":"small_image","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg","position":0},{"attribute_code":"special_from_date","value":"2022-02-01 00:00:00","position":0},{"attribute_code":"marketplace_seller","value":"B2S","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"percent_discount","value":21,"position":0},{"attribute_code":"price_inc_tax","value":135,"position":0},{"attribute_code":"central_url_generator_flag","value":"Url Generator Flag","position":0},{"attribute_code":"created_at","value":"2020-06-04 11:29:54","position":0},{"attribute_code":"special_price","value":106,"position":0},{"attribute_code":"is_bestdeal","value":"Is Best Deal","position":0},{"attribute_code":"ts_dimensions_width","value":14,"position":0},{"attribute_code":"ofm_product_type","value":11,"position":0},{"attribute_code":"description","value":"&lt;p&gt;อัศวินหนุ่มดีใจอย่างยิ่งที่มีกำแพงคั่นกลางหนังสือ&amp;nbsp; เพราะกำแพงป้องกันฝั่งของเขาจากอีกฝั่ง&amp;nbsp; &amp;nbsp;แต่...มันจะเป็นอย่างที่เขาคิดไหมนะ&amp;nbsp;&lt;/p&gt;","position":0},{"attribute_code":"ts_dimensions_length","value":20,"position":0},{"attribute_code":"special_expires_at","value":"2022-02-07 23:59:59","position":0},{"attribute_code":"package_weight","value":0.5,"position":0},{"attribute_code":"ts_dimensions_height","value":6,"position":0},{"attribute_code":"updated_at","value":"2021-11-04 17:39:30","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"image","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg","position":0},{"attribute_code":"warranty_tf","value":"2","position":0},{"attribute_code":"price_discount","value":21.48,"position":0},{"attribute_code":"shipping_methods","value":["ofm_standard"],"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"กำแพงกลางหนังสือ","position":0},{"attribute_code":"special_to_date","value":"2022-02-07 23:59:59","position":0},{"attribute_code":"brand_name","value":"B2S","position":0},{"attribute_code":"search_keywords","value":"กำแพงกลางหนังสือ","position":0},{"attribute_code":"marketplace_product_type","value":"Marketplace","position":0},{"attribute_code":"special_price_inc_tax","value":106,"position":0},{"attribute_code":"marketplace_offer_id","value":"104289","position":0},{"attribute_code":"url_key","value":"b2s-กำแพงกลางหนังสือ-mkp0260941","values":["b2s-กำแพงกลางหนังสือ-mkp0260941"],"position":0},{"attribute_code":"product_group","value":"C","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"กำแพงกลางหนังสือ"},{"attribute_code":"image","name":"image","label":"Base","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"b2s-กำแพงกลางหนังสือ-mkp0260941"},{"attribute_code":"warranty_tf","name":"warranty_tf","label":"Warranty","value":"2"},{"attribute_code":"shipping_methods","name":"shipping_methods","label":"Shipping Methods","value":"ofm_standard"},{"attribute_code":"marketplace_seller","name":"marketplace_seller","label":"Seller","value":"2278"},{"attribute_code":"marketplace_product_type","name":"marketplace_product_type","label":"Marketplace Product Type","value":"marketplace"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"c"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"กำแพงกลางหนังสือ"},{"attribute_code":"description","name":"description","label":"Description","value":"&lt;p&gt;อัศวินหนุ่มดีใจอย่างยิ่งที่มีกำแพงคั่นกลางหนังสือ&amp;nbsp; เพราะกำแพงป้องกันฝั่งของเขาจากอีกฝั่ง&amp;nbsp; &amp;nbsp;แต่...มันจะเป็นอย่างที่เขาคิดไหมนะ&amp;nbsp;&lt;/p&gt;"},{"attribute_code":"short_description","name":"short_description","label":"short description","value":"กำแพงกลางหนังสือ"},{"attribute_code":"marketplace_offer_id","name":"marketplace_offer_id","label":"Marketplace Offer Id","value":"104289"},{"attribute_code":"special_price","name":"special_price","label":"Special Price","value":"99.0654"},{"attribute_code":"ts_dimensions_length","name":"ts_dimensions_length","label":"Length","value":"20.0000"},{"attribute_code":"ts_dimensions_width","name":"ts_dimensions_width","label":"Width","value":"14.0000"},{"attribute_code":"ts_dimensions_height","name":"ts_dimensions_height","label":"Height","value":"6.0000"},{"attribute_code":"special_price_inc_tax","name":"special_price_inc_tax","label":"Special Price Include Tax","value":"106.0000"},{"attribute_code":"price_inc_tax","name":"price_inc_tax","label":"Price Include Tax","value":"135.0000"},{"attribute_code":"package_weight","name":"package_weight","label":"Package Weight","value":"0.5000"},{"attribute_code":"percent_discount","name":"percent_discount","label":"Percent Discount","value":"21.0000"},{"attribute_code":"special_from_date","name":"special_from_date","label":"Special Price From Date","value":"2022-01-31 17:00:00"},{"attribute_code":"special_to_date","name":"special_to_date","label":"Special Price To Date","value":"2022-02-07 16:59:59"},{"attribute_code":"special_expires_at","name":"special_expires_at","label":"Special Expires At","value":"2022-02-07 16:59:59"},{"attribute_code":"status","name":"status","label":"Enable Product","value":"1"},{"attribute_code":"visibility","name":"visibility","label":"Visibility","value":"4"},{"attribute_code":"tax_class_id","name":"tax_class_id","label":"Tax Class","value":"2"},{"attribute_code":"brand_name","name":"brand_name","label":"Brand","value":"4966"},{"attribute_code":"ofm_product_type","name":"ofm_product_type","label":"OFM Product Type","value":"11"},{"attribute_code":"is_new_product","name":"is_new_product","label":"New Product","value":"0"},{"attribute_code":"is_bestdeal","name":"is_bestdeal","label":"Is Best Deal","value":"1"},{"attribute_code":"central_url_generator_flag","name":"central_url_generator_flag","label":"Url Generator Flag","value":"1"}],"specification_attributes":[],"price_discount":21.48,"media_gallery_entries":[{"id":1163988,"media_type":"image","label":"","position":1,"disabled":false,"types":["image","small_image","thumbnail"],"file":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images880d880d56d63719574a3dd53032618265bf2001431e_mkp0260941dummy.jpg"},{"id":1163989,"media_type":"image","label":"","position":2,"disabled":false,"types":[],"file":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images52f052f01df42d8cfd1f23ad0a72fb43dfb1a5f43afa_mkp0260941dummy.jpg"}],"marketplace_seller":"B2S","extension_attributes":{"t1c_redeemable_points":[848],"stock_item":{"item_id":59758574,"product_id":92704,"stock_id":3,"qty":2,"min_qty":1,"use_config_min_qty":true,"is_qty_decimal":false,"backorders":0,"use_config_backorders":true,"min_sale_qty":1,"use_config_min_sale_qty":1,"max_sale_qty":10000,"use_config_max_sale_qty":true,"is_in_stock":true,"low_stock_date":null,"notify_stock_qty":0,"use_config_notify_stock_qty":true,"manage_stock":true,"use_config_manage_stock":true,"stock_status_changed_auto":0,"qty_increments":1,"use_config_qty_incr... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220203 01:18:46.421" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.322" endtime="20220203 01:18:46.421"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${https_status}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220203 01:18:46.422" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.421" endtime="20220203 01:18:46.422"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${json}</arg>
+<arg>${resp.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.456" level="INFO">${json} = {'products': {'total_count': 520, 'products': [{'id': 92704, 'type_id': 'simple', 'name': 'กำแพงกลางหนังสือ', 'brand_name': 'B2S', 'small_image': '/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-pro...</msg>
+<status status="PASS" starttime="20220203 01:18:46.423" endtime="20220203 01:18:46.456"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.321" endtime="20220203 01:18:46.457"/>
+</kw>
+<kw name="THEN Check Data In Json" library="search_api_keywords">
+<kw name="Convert To Upper Case" library="String">
+<var>${respone_name}</var>
+<arg>${json["products"]["products"][3]["name"]}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:18:46.458" level="INFO">${respone_name} = หนังสือไม่มีเรื่องราว</msg>
+<status status="PASS" starttime="20220203 01:18:46.457" endtime="20220203 01:18:46.458"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${search_input}</var>
+<arg>${searchQuery}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:18:46.458" level="INFO">${search_input} = หนังสือ</msg>
+<status status="PASS" starttime="20220203 01:18:46.458" endtime="20220203 01:18:46.458"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${respone_name}</arg>
+<arg>${search_input}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220203 01:18:46.459" endtime="20220203 01:18:46.459"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.457" endtime="20220203 01:18:46.459"/>
+</kw>
+<doc>To ensure search product is success with all valid values and searchQuery in Thai language</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:18:46.304" endtime="20220203 01:18:46.459"/>
+</test>
+<test id="s1-s1-t2" name="SEARCH_API_TC02">
+<kw name="GIVEN Set Test Variables '${TEST_NAME}'" library="search_api_keywords" sourcename="Set Test Variables '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-newrelic-id}</arg>
+<arg>${${data}.x_newrelic_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.463" level="INFO">${x-newrelic-id} = VQMOUF5SABAHVlRQAAIAVFc=</msg>
+<status status="PASS" starttime="20220203 01:18:46.461" endtime="20220203 01:18:46.463"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-store-code}</arg>
+<arg>${${data}.x_store_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.465" level="INFO">${x-store-code} = en</msg>
+<status status="PASS" starttime="20220203 01:18:46.463" endtime="20220203 01:18:46.465"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${searchQuery}</arg>
+<arg>${${data}.searchQuery}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.471" level="INFO">${searchQuery} = book</msg>
+<status status="PASS" starttime="20220203 01:18:46.466" endtime="20220203 01:18:46.472"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${limit}</arg>
+<arg>${${data}.limit}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.474" level="INFO">${limit} = 25</msg>
+<status status="PASS" starttime="20220203 01:18:46.472" endtime="20220203 01:18:46.474"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${page}</arg>
+<arg>${${data}.page}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.476" level="INFO">${page} = 1</msg>
+<status status="PASS" starttime="20220203 01:18:46.474" endtime="20220203 01:18:46.476"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${https_status}</arg>
+<arg>${${data}.https_status}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.478" level="INFO">${https_status} = 200</msg>
+<status status="PASS" starttime="20220203 01:18:46.476" endtime="20220203 01:18:46.478"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.460" endtime="20220203 01:18:46.478"/>
+</kw>
+<kw name="AND Call Get Search Product List" library="search_api_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${param}</var>
+<arg>searchQuery=${searchQuery}</arg>
+<arg>limit=${limit}</arg>
+<arg>page=${page}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.479" level="INFO">${param} = {'searchQuery': 'book', 'limit': '25', 'page': '1'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.479" endtime="20220203 01:18:46.479"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>x-newrelic-id=${x-newrelic-id}</arg>
+<arg>x-store-code=${x-store-code}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.480" level="INFO">${header} = {'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.479" endtime="20220203 01:18:46.480"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${endpoint}</arg>
+<arg>${param}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=${https_status}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220203 01:18:46.548" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=book&amp;limit=25&amp;page=1 
+ path_url=/api/search/products?searchQuery=book&amp;limit=25&amp;page=1 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'} 
+ body=None 
+ </msg>
+<msg timestamp="20220203 01:18:46.549" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=book&amp;limit=25&amp;page=1 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"67812-eNGTGB4dW/BuRL5G50rdyyoq/90"', 'Content-Encoding': 'gzip', 'Content-Length': '37768', 'Cache-Control': 'public, max-age=90', 'Expires': 'Wed, 02 Feb 2022 18:20:16 GMT', 'Date': 'Wed, 02 Feb 2022 18:18:46 GMT', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":14644,"products":[{"id":113447,"type_id":"simple","name":"Biology : The Problems Book","brand_name":"B2S","small_image":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg","image":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg","thumbnail":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg","url_key":"b2s-biology-the-problems-book-mkp0283772","attribute_set_id":4,"visibility":4,"status":1,"category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":287,"name":"School &amp; Entertainment","level":2,"parent_id":2,"url_key":"education-entertainment","url_path":"education-entertainment","is_parent":true},{"category_id":793,"name":"Thai Books","level":3,"parent_id":287,"url_key":"thai-books","url_path":"education-entertainment/thai-books","is_parent":true},{"category_id":1224,"name":"Learning Books","level":4,"parent_id":793,"url_key":"learning-books","url_path":"education-entertainment/thai-books/learning-books","is_parent":true}],"price":249,"tier_prices":[{"price":236,"original_price":249,"customer_group_id":0,"is_discount":true},{"price":236,"original_price":249,"customer_group_id":1,"is_discount":true},{"price":236,"original_price":249,"customer_group_id":2,"is_discount":true},{"price":236,"original_price":249,"customer_group_id":3,"is_discount":true},{"price":236,"original_price":249,"customer_group_id":4,"is_discount":true},{"price":236,"original_price":249,"customer_group_id":5,"is_discount":true}],"special_price":236,"special_from_date":"2022-02-01T00:00:00","special_to_date":"2022-02-12T23:59:59","stock":{"qty":3,"is_in_stock":true},"score":43.430126,"custom_attributes_option":[{"attribute_code":"small_image","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg","position":0},{"attribute_code":"special_from_date","value":"2022-02-01 00:00:00","position":0},{"attribute_code":"marketplace_seller","value":"B2S","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"percent_discount","value":5,"position":0},{"attribute_code":"price_inc_tax","value":249,"position":0},{"attribute_code":"central_url_generator_flag","value":"Url Generator Flag","position":0},{"attribute_code":"created_at","value":"2020-09-05 06:35:06","position":0},{"attribute_code":"special_price","value":236,"position":0},{"attribute_code":"is_bestdeal","value":"Is Best Deal","position":0},{"attribute_code":"ts_dimensions_width","value":30,"position":0},{"attribute_code":"ofm_product_type","value":11,"position":0},{"attribute_code":"description","value":"ปัจจุบันการเรียนวิชาชีววิทยาสำหรับการสอบประจำภาค การสอบเข้ามหาวิทยาลัย การสอบแข่งขันต่าง ๆ ทั้งในระดับโอลิมปิกวิชาการและการแข่งขันสอบชิงทุนต่าง ๆ ข้อสอบมีการวัดและประเมินทักษะที่นอกเหนือไปจากการท่องจำ เนื้อหาต่าง ๆ ขึ้นไปในระดับที่มีการคิดวิเคราะห์ สังเคราะห์ และการแก้ปัญหาโจทย์ที่มีความซับซ้อนมากขึ้น ดังนั้นทางคณะผู้เขียนจึงทำการจัดทำ หนังสือ \"Biology: The Problems Book\" ขึ้นมา เพื่อให้ผู้อ่านสามารถนำความรู้ที่ได้จากการเรียนในห้องเรียน หรือการอ่านหนังสือทบทวนมาใช้ในการวิเคราะห์โจทย์ปัญหาที่มีความซับซ้อนเพิ่มขึ้น โดยโจทย์ในหนังสือเล่มนี้ส่วนใหญ่จะเน้นไปที่การคิดวิเคราะห์ เพื่อให้นักเรียนสามารถต่อยอดความรู้ที่ได้ไปอย่างมีประสิทธิภาพเพิ่มขึ้น\n\nบทที่ 1 บทนำเกี่ยวกับชีววิทยา\nบทที่ 2 เคมีในสิ่งมีชีวิต\nบทที่ 3 โครงสร้างและการทำงานของเซลล์\nบทที่ 4 เมมเบรนและการลำเลียงสารผ่านเข้าออกเซลล์\nบทที่ 5 พลังงาน เอนไซม์ และเมแทบอลิซึม\nบทที่ 6 การหายใจระดับเซลล์\nบทที่ 7 การสังเคราะห์ด้วยแสง\nบทที่ 8 เนื้อเยื่อสัตว์และการรักษาดุลยภาพ\nบทที่ 9 การรักษาความเข้มข้นในร่างกายและการขับถ่าย\nบทที่ 10 การย่อยอาหาร\nฯลฯ","position":0},{"attribute_code":"ts_dimensions_length","value":20,"position":0},{"attribute_code":"special_expires_at","value":"2022-02-12 23:59:59","position":0},{"attribute_code":"package_weight","value":0.5,"position":0},{"attribute_code":"ts_dimensions_height","value":11,"position":0},{"attribute_code":"updated_at","value":"2021-12-16 11:47:36","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"image","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg","position":0},{"attribute_code":"warranty_tf","value":"2","position":0},{"attribute_code":"price_discount","value":5.22,"position":0},{"attribute_code":"shipping_methods","value":["ofm_standard"],"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"ปัจจุบันการเรียนวิชาชีววิทยาสำหรับการสอบประจำภาค การสอบเข้ามหาวิทยาลัย การสอบแข่งขันต่าง ๆ ทั้งในระดับโอลิมปิกวิชาการและการแข่งขันสอบชิงทุนต่าง ๆ ข้อสอบมีการวัดและประเมินทักษะที่นอกเหนือไปจากการท่องจำ เนื้อหาต่าง ๆ ขึ้นไปในระดับที่มีการคิดวิเคราะห์ สังเคราะห์ และการแก้ปัญหาโจทย์ที่มีความซับซ้อนมากขึ้น ดังนั้นทางคณะผู้เขียนจึงทำการจัดทำ หนังสือ \"Biology: The Problems Book\" ขึ้นมา เพื่อให้ผู้อ่านสามารถนำความรู้ที่ได้จากการเรียนในห้องเรียน หรือการอ่านหนังสือทบทวนมาใช้ในการวิเคราะห์โจทย์ปัญหาที่มีความซับซ้อนเพิ่มขึ้น โดยโจทย์ในหนังสือเล่มนี้ส่วนใหญ่จะเน้นไปที่การคิดวิเคราะห์ เพื่อให้นักเรียนสามารถต่อยอดความรู้ที่ได้ไปอย่างมีประสิทธิภาพเพิ่มขึ้น\n\nบทที่ 1 บทนำเกี่ยวกับชีววิทยา\nบทที่ 2 เคมีในสิ่งมีชีวิต\nบทที่ 3 โครงสร้างและการทำงานของเซลล์\nบทที่ 4 เมมเบรนและการลำเลียงสารผ่านเข้าออกเซลล์\nบทที่ 5 พลังงาน เอนไซม์ และเมแทบอลิซึม\nบทที่ 6 การหายใจระดับเซลล์\nบทที่ 7 การสังเคราะห์ด้วยแสง\nบทที่ 8 เนื้อเยื่อสัตว์และการรักษาดุลยภาพ\nบทที่ 9 การรักษาความเข้มข้นในร่างกายและการขับถ่าย\nบทที่ 10 การย่อยอาหาร\nฯลฯ","position":0},{"attribute_code":"special_to_date","value":"2022-02-12 23:59:59","position":0},{"attribute_code":"brand_name","value":"B2S","position":0},{"attribute_code":"search_keywords","value":"Biology : The Problems Book","position":0},{"attribute_code":"marketplace_product_type","value":"Marketplace","position":0},{"attribute_code":"special_price_inc_tax","value":236,"position":0},{"attribute_code":"marketplace_offer_id","value":"134284","position":0},{"attribute_code":"url_key","value":"b2s-biology-the-problems-book-mkp0283772","values":["b2s-biology-the-problems-book-mkp0283772"],"position":0},{"attribute_code":"product_group","value":"C","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"Biology : The Problems Book"},{"attribute_code":"image","name":"image","label":"Base","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images41ba41bad273d827e9c4305b2502c37c88c3810cb088_mkp0283772dummy.jpg"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"b2s-biology-the-problems-book-mkp0283772"},{"attribute_code":"warranty_tf","name":"warranty_tf","label":"Warranty","value":"2"},{"attribute_code":"shipping_methods","name":"shipping_methods","label":"Shipping Methods","value":"ofm_standard"},{"attribute_code":"marketplace_seller","name":"marketplace_seller","label":"Seller","value":"2278"},{"attribute_code":"marketplace_product_type","name":"marketplace_product_type","label":"Marketplace Product Type","value":"marketplace"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"c"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"Biology : The Problems Book"},{"attribute_code":"description","name":"description","label":"Description","value":"ปัจจุบันการเรียนวิชาชีววิทยาสำหรับการสอบประจำภาค การสอบเข้ามหาวิทยาลัย การสอบแข่งขันต่าง ๆ ทั้งในระดับโอลิมปิกวิชาการและการแข่งขันสอบชิงทุนต่าง ๆ ข้อสอบมีการวัดและประเมินทักษะที่นอกเหนือไปจากการท่องจำ เนื้อหาต่าง ๆ ขึ้นไปในระดับที่มีการคิดวิเคราะห์ สังเคราะห์ และการแก้ปัญหาโจทย์ที่มีความซับซ้อนมากขึ้น ดังนั้นทางคณะผู้เขียนจึงทำการจัดทำ หนังสือ \"Biology: The Problems Book\" ขึ้นมา เพื่อให้ผู้อ่านสามารถนำความรู้ที่ได้จากการเรียนในห้องเรียน หรือการอ่านหนังสือทบทวนมาใช้ในการวิเคราะห์โจทย์ปัญหาที่มีความซับซ้อนเพิ่มขึ้น โดยโจทย์ในหนังสือเล่มนี้ส่วนใหญ่จะเน้นไปที่การคิดวิเคราะห์ เพื่อให้นักเรียนสามารถต่อยอดความรู้ที่ได้ไปอย่างมีประสิทธิภาพเพิ่มขึ้น\n\nบทที่ 1 บทนำเกี่ยวกับชีววิทยา\nบทที่ 2 เคมีในสิ่งมีชีวิต\nบทที่ 3 โครงสร้างและการทำงานของเซลล์\nบทที่ 4 เมมเบรนและการลำเลียงสารผ่านเข้าออกเซลล์\nบทที่ 5 พลังงาน เอนไซม์ และเมแทบอลิซึม\nบทที่ 6 การหายใจระดับเซลล์\nบทที่ 7 การสังเคราะห์ด้วยแสง\nบทที่ 8 เนื้อเยื่อสัตว์และการรักษาดุลยภาพ\nบทที่ 9 การรักษาความเข้มข้นในร่างกายและการขับถ่าย\nบทที่ 10 การย่อยอาหาร\nฯลฯ"},{"attribute_code":"short_description","name":"short_description","label":"short description","value":"ปัจจุบันการเรียนวิชาชีววิทยาสำหรับการสอบประจำภาค การสอบเข้ามหาวิทยาลัย การสอบแข่งขันต่าง ๆ ทั้งในระดับโอลิมปิกวิชาการและการแข่งขันสอบชิงทุนต่าง ๆ ข้อสอบมีการวัดและประเมินทักษะที่นอกเหนือไปจากการท่องจำ เนื้อหาต่าง ๆ ขึ้นไปในระดับที่มีการคิดวิเคราะห์ สังเคราะห์ และการแก้ปัญหาโจทย์ที่มีความซับซ้อนมากขึ้น ดังนั้นทางคณะผู้เขียนจึงทำการจัดทำ หนังสือ \"Biology: The Problems Book\" ขึ้นมา เพื่อให้ผู้อ่านสามารถนำความรู้ที่ได้จากการเรียนในห้องเรียน หรือการอ่านหนัง... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220203 01:18:46.550" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.480" endtime="20220203 01:18:46.550"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${https_status}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220203 01:18:46.552" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.550" endtime="20220203 01:18:46.552"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${json}</arg>
+<arg>${resp.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.575" level="INFO">${json} = {'products': {'total_count': 14644, 'products': [{'id': 113447, 'type_id': 'simple', 'name': 'Biology : The Problems Book', 'brand_name': 'B2S', 'small_image': '/h/t/httpss3-ap-southeast-1.amazonaws.c...</msg>
+<status status="PASS" starttime="20220203 01:18:46.552" endtime="20220203 01:18:46.575"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.478" endtime="20220203 01:18:46.575"/>
+</kw>
+<kw name="THEN Check Data In Json" library="search_api_keywords">
+<kw name="Convert To Upper Case" library="String">
+<var>${respone_name}</var>
+<arg>${json["products"]["products"][3]["name"]}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:18:46.577" level="INFO">${respone_name} = NANMEE BOOK</msg>
+<status status="PASS" starttime="20220203 01:18:46.576" endtime="20220203 01:18:46.577"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${search_input}</var>
+<arg>${searchQuery}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:18:46.577" level="INFO">${search_input} = BOOK</msg>
+<status status="PASS" starttime="20220203 01:18:46.577" endtime="20220203 01:18:46.577"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${respone_name}</arg>
+<arg>${search_input}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220203 01:18:46.578" endtime="20220203 01:18:46.578"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.576" endtime="20220203 01:18:46.578"/>
+</kw>
+<doc>To ensure search product is success with all valid values and searchQuery in English language</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:18:46.460" endtime="20220203 01:18:46.578"/>
+</test>
+<test id="s1-s1-t3" name="SEARCH_API_TC04">
+<kw name="GIVEN Set Test Variables '${TEST_NAME}'" library="search_api_keywords" sourcename="Set Test Variables '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-newrelic-id}</arg>
+<arg>${${data}.x_newrelic_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.583" level="INFO">${x-newrelic-id} = VQMOUF5SABAHVlRQAAIAVFc=</msg>
+<status status="PASS" starttime="20220203 01:18:46.581" endtime="20220203 01:18:46.583"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-store-code}</arg>
+<arg>${${data}.x_store_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.586" level="INFO">${x-store-code} = en</msg>
+<status status="PASS" starttime="20220203 01:18:46.583" endtime="20220203 01:18:46.586"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${searchQuery}</arg>
+<arg>${${data}.searchQuery}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.589" level="INFO">${searchQuery} = AEIOU</msg>
+<status status="PASS" starttime="20220203 01:18:46.586" endtime="20220203 01:18:46.589"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${limit}</arg>
+<arg>${${data}.limit}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.591" level="INFO">${limit} = 25</msg>
+<status status="PASS" starttime="20220203 01:18:46.589" endtime="20220203 01:18:46.591"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${page}</arg>
+<arg>${${data}.page}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.593" level="INFO">${page} = 1</msg>
+<status status="PASS" starttime="20220203 01:18:46.591" endtime="20220203 01:18:46.593"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${https_status}</arg>
+<arg>${${data}.https_status}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.596" level="INFO">${https_status} = 200</msg>
+<status status="PASS" starttime="20220203 01:18:46.594" endtime="20220203 01:18:46.596"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.580" endtime="20220203 01:18:46.596"/>
+</kw>
+<kw name="AND Call Get Search Product List" library="search_api_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${param}</var>
+<arg>searchQuery=${searchQuery}</arg>
+<arg>limit=${limit}</arg>
+<arg>page=${page}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.597" level="INFO">${param} = {'searchQuery': 'AEIOU', 'limit': '25', 'page': '1'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.596" endtime="20220203 01:18:46.597"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>x-newrelic-id=${x-newrelic-id}</arg>
+<arg>x-store-code=${x-store-code}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.598" level="INFO">${header} = {'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.597" endtime="20220203 01:18:46.598"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${endpoint}</arg>
+<arg>${param}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=${https_status}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220203 01:18:46.651" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=AEIOU&amp;limit=25&amp;page=1 
+ path_url=/api/search/products?searchQuery=AEIOU&amp;limit=25&amp;page=1 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'} 
+ body=None 
+ </msg>
+<msg timestamp="20220203 01:18:46.652" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=AEIOU&amp;limit=25&amp;page=1 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"42e-ajBNY7t9dR8/NvlvY4lugsvzqEA"', 'Content-Encoding': 'gzip', 'Content-Length': '427', 'Cache-Control': 'public, max-age=77', 'Expires': 'Wed, 02 Feb 2022 18:20:03 GMT', 'Date': 'Wed, 02 Feb 2022 18:18:46 GMT', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":0,"products":[],"filters":[],"sorting":[{"code":"percent_discount"},{"code":"sold_qty"},{"code":"created_at"},{"code":"rating"},{"code":"name","name":"Product Name"},{"code":"price","name":"Price"},{"code":"brand_name","name":"Brand"},{"code":"rating","name":"Rating"},{"code":"sold_qty","name":"Product Sold by Website"},{"code":"percent_discount","name":"Percent Discount"}],"search_criteria":{"index":"","manualSorting":"DISABLED","intentMode":"AUTO","requestName":"catalog_view_container","size":25,"currentPage":1,"filterGroups":[{"filters":[{"field":"status","value":"1","conditionType":"eq","splitter":",","analyzer":"","operator":""}]},{"filters":[{"field":"price","value":"0","conditionType":"moreq","splitter":",","analyzer":"","operator":""}]},{"filters":[{"field":"search_term","value":"AEIOU","conditionType":"like","splitter":",","analyzer":"","operator":""}]},{"filters":[{"field":"website_id","value":"2","conditionType":"eq","splitter":",","analyzer":"","operator":""}]}],"sortOrders":[]}},"range":{"minPrice":0,"maxPrice":0}} 
+ </msg>
+<msg timestamp="20220203 01:18:46.652" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.598" endtime="20220203 01:18:46.652"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${https_status}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220203 01:18:46.654" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.652" endtime="20220203 01:18:46.654"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${json}</arg>
+<arg>${resp.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.658" level="INFO">${json} = {'products': {'total_count': 0, 'products': [], 'filters': [], 'sorting': [{'code': 'percent_discount'}, {'code': 'sold_qty'}, {'code': 'created_at'}, {'code': 'rating'}, {'code': 'name', 'name': 'Pro...</msg>
+<status status="PASS" starttime="20220203 01:18:46.654" endtime="20220203 01:18:46.658"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.596" endtime="20220203 01:18:46.658"/>
+</kw>
+<doc>To ensure search product is fail with searchQuery is product is not in list</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:18:46.579" endtime="20220203 01:18:46.658"/>
+</test>
+<test id="s1-s1-t4" name="SEARCH_API_TC05">
+<kw name="GIVEN Set Test Variables '${TEST_NAME}'" library="search_api_keywords" sourcename="Set Test Variables '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-newrelic-id}</arg>
+<arg>${${data}.x_newrelic_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.663" level="INFO">${x-newrelic-id} = VQMOUF5SABAHVlRQAAIAVFc=</msg>
+<status status="PASS" starttime="20220203 01:18:46.660" endtime="20220203 01:18:46.663"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-store-code}</arg>
+<arg>${${data}.x_store_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.666" level="INFO">${x-store-code} = en</msg>
+<status status="PASS" starttime="20220203 01:18:46.663" endtime="20220203 01:18:46.666"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${searchQuery}</arg>
+<arg>${${data}.searchQuery}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.668" level="INFO">${searchQuery} = book</msg>
+<status status="PASS" starttime="20220203 01:18:46.666" endtime="20220203 01:18:46.669"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${limit}</arg>
+<arg>${${data}.limit}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.671" level="INFO">${limit} = ABC</msg>
+<status status="PASS" starttime="20220203 01:18:46.669" endtime="20220203 01:18:46.671"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${page}</arg>
+<arg>${${data}.page}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.673" level="INFO">${page} = 1</msg>
+<status status="PASS" starttime="20220203 01:18:46.671" endtime="20220203 01:18:46.673"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${https_status}</arg>
+<arg>${${data}.https_status}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.675" level="INFO">${https_status} = 404</msg>
+<status status="PASS" starttime="20220203 01:18:46.673" endtime="20220203 01:18:46.675"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.660" endtime="20220203 01:18:46.676"/>
+</kw>
+<kw name="AND Call Get Search Product List" library="search_api_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${param}</var>
+<arg>searchQuery=${searchQuery}</arg>
+<arg>limit=${limit}</arg>
+<arg>page=${page}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.677" level="INFO">${param} = {'searchQuery': 'book', 'limit': 'ABC', 'page': '1'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.676" endtime="20220203 01:18:46.677"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>x-newrelic-id=${x-newrelic-id}</arg>
+<arg>x-store-code=${x-store-code}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.678" level="INFO">${header} = {'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.677" endtime="20220203 01:18:46.678"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${endpoint}</arg>
+<arg>${param}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=${https_status}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220203 01:18:46.773" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=book&amp;limit=ABC&amp;page=1 
+ path_url=/api/search/products?searchQuery=book&amp;limit=ABC&amp;page=1 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'} 
+ body=None 
+ </msg>
+<msg timestamp="20220203 01:18:46.773" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=book&amp;limit=ABC&amp;page=1 
+ status=404, reason=Not Found 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '62', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"3e-h30rKD0AVpt4N572PmCD2xi+NCs"', 'Cache-Control': 'max-age=300', 'Expires': 'Wed, 02 Feb 2022 18:23:46 GMT', 'Date': 'Wed, 02 Feb 2022 18:18:46 GMT', 'Connection': 'keep-alive', 'Server-Timing': 'edge; dur=1, origin; dur=38, cdn-cache; desc=MISS'} 
+ body={"products":null,"message":"[object Object]","status":"error"} 
+ </msg>
+<msg timestamp="20220203 01:18:46.773" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.678" endtime="20220203 01:18:46.773"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${https_status}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220203 01:18:46.775" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.773" endtime="20220203 01:18:46.775"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${json}</arg>
+<arg>${resp.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.778" level="INFO">${json} = {'products': None, 'message': '[object Object]', 'status': 'error'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.775" endtime="20220203 01:18:46.778"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.676" endtime="20220203 01:18:46.779"/>
+</kw>
+<doc>To ensure search product is fail with limit is invalid</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:18:46.659" endtime="20220203 01:18:46.779"/>
+</test>
+<test id="s1-s1-t5" name="SEARCH_API_TC11">
+<kw name="GIVEN Set Test Variables '${TEST_NAME}'" library="search_api_keywords" sourcename="Set Test Variables '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-newrelic-id}</arg>
+<arg>${${data}.x_newrelic_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.785" level="INFO">${x-newrelic-id} = VQMOUF5SABAHVlRQAAIAVFc=</msg>
+<status status="PASS" starttime="20220203 01:18:46.781" endtime="20220203 01:18:46.785"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${x-store-code}</arg>
+<arg>${${data}.x_store_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.789" level="INFO">${x-store-code} = en</msg>
+<status status="PASS" starttime="20220203 01:18:46.785" endtime="20220203 01:18:46.789"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${searchQuery}</arg>
+<arg>${${data}.searchQuery}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.794" level="INFO">${searchQuery} = book</msg>
+<status status="PASS" starttime="20220203 01:18:46.790" endtime="20220203 01:18:46.794"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${limit}</arg>
+<arg>${${data}.limit}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.797" level="INFO">${limit} = 25</msg>
+<status status="PASS" starttime="20220203 01:18:46.794" endtime="20220203 01:18:46.797"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${page}</arg>
+<arg>${${data}.page}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.802" level="INFO">${page} = 1</msg>
+<status status="PASS" starttime="20220203 01:18:46.798" endtime="20220203 01:18:46.802"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${https_status}</arg>
+<arg>${${data}.https_status}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:46.804" level="INFO">${https_status} = 404</msg>
+<status status="PASS" starttime="20220203 01:18:46.802" endtime="20220203 01:18:46.805"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.781" endtime="20220203 01:18:46.805"/>
+</kw>
+<kw name="AND Call Post Search Product List" library="search_api_keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${param}</var>
+<arg>searchQuery=${searchQuery}</arg>
+<arg>limit=${limit}</arg>
+<arg>page=${page}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.806" level="INFO">${param} = {'searchQuery': 'book', 'limit': '25', 'page': '1'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.806" endtime="20220203 01:18:46.806"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>x-newrelic-id=${x-newrelic-id}</arg>
+<arg>x-store-code=${x-store-code}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220203 01:18:46.807" level="INFO">${header} = {'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en'}</msg>
+<status status="PASS" starttime="20220203 01:18:46.806" endtime="20220203 01:18:46.807"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${endpoint}</arg>
+<arg>${param}</arg>
+<arg>headers=${header}</arg>
+<arg>expected_status=${https_status}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220203 01:18:46.895" level="INFO">POST Request : url=https://www.officemate.co.th/api/search/products 
+ path_url=/api/search/products 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-newrelic-id': 'VQMOUF5SABAHVlRQAAIAVFc=', 'x-store-code': 'en', 'Content-Length': '32', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=searchQuery=book&amp;limit=25&amp;page=1 
+ </msg>
+<msg timestamp="20220203 01:18:46.895" level="INFO">POST Response : url=https://www.officemate.co.th/api/search/products 
+ status=404, reason=Not Found 
+ headers={'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '159', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'Content-Security-Policy': "default-src 'none'", 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'max-age=300', 'Expires': 'Wed, 02 Feb 2022 18:23:46 GMT', 'Date': 'Wed, 02 Feb 2022 18:18:46 GMT', 'Connection': 'close', 'Server-Timing': 'edge; dur=1, origin; dur=29, cdn-cache; desc=MISS'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot POST /api/search/products&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20220203 01:18:46.895" level="INFO">${resp} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.807" endtime="20220203 01:18:46.895"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${https_status}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220203 01:18:46.897" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.896" endtime="20220203 01:18:46.898"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.805" endtime="20220203 01:18:46.898"/>
+</kw>
+<doc>To ensure search product api can search with all valid values using POST method</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:18:46.780" endtime="20220203 01:18:46.898"/>
+</test>
+<status status="PASS" starttime="20220203 01:18:46.016" endtime="20220203 01:18:46.899"/>
+</suite>
+<suite id="s1-s2" name="Search Ui" source="/Users/panreyarukpiyawanich/BitbucketRepo/test_central_tech/testcases/search_ui.robot">
+<test id="s1-s2-t1" name="SEARCH_UI_TC01">
+<kw name="GIVEN Go To Officemate website" library="search_ui_keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220203 01:18:46.939" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x10b485640&gt;</msg>
+<status status="PASS" starttime="20220203 01:18:46.937" endtime="20220203 01:18:46.939"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220203 01:18:46.939" endtime="20220203 01:18:46.940"/>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<arg>Chrome</arg>
+<arg>chrome_options=${opt}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220203 01:18:46.941" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220203 01:18:46.940" endtime="20220203 01:18:48.776"/>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<arg>${officemate_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220203 01:18:48.777" level="INFO">Opening url 'https://www.officemate.co.th/en'</msg>
+<status status="PASS" starttime="20220203 01:18:48.777" endtime="20220203 01:18:53.247"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:46.937" endtime="20220203 01:18:53.247"/>
+</kw>
+<kw name="AND Verify Search Textbox" library="search_ui_keywords">
+<kw name="Close Campaign Modal" library="search_ui_keywords">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:18:53.248" endtime="20220203 01:18:54.288"/>
+</kw>
+<kw name="Select Frame" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20220203 01:18:54.289" level="INFO">Selecting frame '//iframe[contains (@classname,"sp-fancybox-iframe")]'.</msg>
+<status status="PASS" starttime="20220203 01:18:54.288" endtime="20220203 01:18:54.376"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${close_campaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:18:54.376" level="INFO">Clicking element '//div[contains(@class,"element-close-button") and contains(@id,"wrap-close-button")]'.</msg>
+<status status="PASS" starttime="20220203 01:18:54.376" endtime="20220203 01:18:54.575"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:53.248" endtime="20220203 01:18:54.575"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:18:54.575" endtime="20220203 01:18:54.691"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:18:54.691" endtime="20220203 01:18:54.711"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:53.247" endtime="20220203 01:18:54.711"/>
+</kw>
+<kw name="AND Input Search Text '${TEST_NAME}'" library="search_ui_keywords" sourcename="Input Search Text '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${search_input}</arg>
+<arg>${${data}.search_input}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:18:54.714" level="INFO">${search_input} = หนังสือ</msg>
+<status status="PASS" starttime="20220203 01:18:54.712" endtime="20220203 01:18:54.714"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<arg>${search_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220203 01:18:54.715" level="INFO">Typing text 'หนังสือ' into text field '//input[@class="_5vxBY _32CNv _2MLml"]'.</msg>
+<status status="PASS" starttime="20220203 01:18:54.714" endtime="20220203 01:18:55.046"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:18:55.047" level="INFO">Clicking element '//div[@id="btn-searchResultPage"]'.</msg>
+<status status="PASS" starttime="20220203 01:18:55.046" endtime="20220203 01:18:55.250"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:54.712" endtime="20220203 01:18:55.250"/>
+</kw>
+<kw name="THEN Verify Result After Search '${TEST_NAME}'" library="search_ui_keywords" sourcename="Verify Result After Search '${data}'">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_element_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${search_notfound}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_notfound}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20220203 01:19:00.826" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220203 01:19:00.828" level="FAIL">Element '//div[@id="pnl-listPageNotFound"]/div[@class="title"]' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20220203 01:18:55.252" endtime="20220203 01:19:00.828"/>
+</kw>
+<msg timestamp="20220203 01:19:00.828" level="INFO">${is_element_visible} = False</msg>
+<status status="PASS" starttime="20220203 01:18:55.251" endtime="20220203 01:19:00.830"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${is_element_visible}' == 'True'</arg>
+<arg>Verify Result Product Is Not In List '${data}'</arg>
+<arg>ELSE</arg>
+<arg>Verify Result Product Is In List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Result Product Is In List" library="search_ui_keywords">
+<kw name="Get Text" library="Selenium2Library">
+<var>${text_result}</var>
+<arg>${search_result_product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:00.858" level="INFO">${text_result} = กำแพงกลางหนังสือ</msg>
+<status status="PASS" starttime="20220203 01:19:00.831" endtime="20220203 01:19:00.858"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${result_product}</var>
+<arg>${text_result}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:00.859" level="INFO">${result_product} = กำแพงกลางหนังสือ</msg>
+<status status="PASS" starttime="20220203 01:19:00.858" endtime="20220203 01:19:00.859"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${input_product}</var>
+<arg>${search_input}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:00.859" level="INFO">${input_product} = หนังสือ</msg>
+<status status="PASS" starttime="20220203 01:19:00.859" endtime="20220203 01:19:00.859"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result_product}</arg>
+<arg>${input_product}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220203 01:19:00.859" endtime="20220203 01:19:00.859"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:00.831" endtime="20220203 01:19:00.860"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:00.830" endtime="20220203 01:19:00.860"/>
+</kw>
+<status status="PASS" starttime="20220203 01:18:55.251" endtime="20220203 01:19:00.860"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220203 01:19:00.860" endtime="20220203 01:19:01.013"/>
+</kw>
+<doc>To verify user can search product in thai language</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:18:46.936" endtime="20220203 01:19:01.013"/>
+</test>
+<test id="s1-s2-t2" name="SEARCH_UI_TC03">
+<kw name="GIVEN Go To Officemate website" library="search_ui_keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220203 01:19:01.015" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x10b485ca0&gt;</msg>
+<status status="PASS" starttime="20220203 01:19:01.015" endtime="20220203 01:19:01.015"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220203 01:19:01.016" endtime="20220203 01:19:01.016"/>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<arg>Chrome</arg>
+<arg>chrome_options=${opt}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220203 01:19:01.016" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220203 01:19:01.016" endtime="20220203 01:19:02.980"/>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<arg>${officemate_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220203 01:19:02.981" level="INFO">Opening url 'https://www.officemate.co.th/en'</msg>
+<status status="PASS" starttime="20220203 01:19:02.981" endtime="20220203 01:19:07.609"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:01.015" endtime="20220203 01:19:07.610"/>
+</kw>
+<kw name="AND Verify Search Textbox" library="search_ui_keywords">
+<kw name="Close Campaign Modal" library="search_ui_keywords">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:07.612" endtime="20220203 01:19:08.748"/>
+</kw>
+<kw name="Select Frame" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20220203 01:19:08.749" level="INFO">Selecting frame '//iframe[contains (@classname,"sp-fancybox-iframe")]'.</msg>
+<status status="PASS" starttime="20220203 01:19:08.748" endtime="20220203 01:19:08.970"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${close_campaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:08.971" level="INFO">Clicking element '//div[contains(@class,"element-close-button") and contains(@id,"wrap-close-button")]'.</msg>
+<status status="PASS" starttime="20220203 01:19:08.971" endtime="20220203 01:19:09.105"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:07.611" endtime="20220203 01:19:09.105"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:09.105" endtime="20220203 01:19:09.203"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:09.204" endtime="20220203 01:19:09.257"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:07.610" endtime="20220203 01:19:09.258"/>
+</kw>
+<kw name="AND Input Search Text '${TEST_NAME}'" library="search_ui_keywords" sourcename="Input Search Text '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${search_input}</arg>
+<arg>${${data}.search_input}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:19:09.262" level="INFO">${search_input} = ball</msg>
+<status status="PASS" starttime="20220203 01:19:09.258" endtime="20220203 01:19:09.262"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<arg>${search_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:09.263" level="INFO">Typing text 'ball' into text field '//input[@class="_5vxBY _32CNv _2MLml"]'.</msg>
+<status status="PASS" starttime="20220203 01:19:09.262" endtime="20220203 01:19:09.731"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:09.731" level="INFO">Clicking element '//div[@id="btn-searchResultPage"]'.</msg>
+<status status="PASS" starttime="20220203 01:19:09.731" endtime="20220203 01:19:09.872"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:09.258" endtime="20220203 01:19:09.872"/>
+</kw>
+<kw name="THEN Verify Result After Search '${TEST_NAME}'" library="search_ui_keywords" sourcename="Verify Result After Search '${data}'">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_element_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${search_notfound}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_notfound}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20220203 01:19:15.358" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220203 01:19:15.359" level="FAIL">Element '//div[@id="pnl-listPageNotFound"]/div[@class="title"]' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20220203 01:19:09.873" endtime="20220203 01:19:15.359"/>
+</kw>
+<msg timestamp="20220203 01:19:15.359" level="INFO">${is_element_visible} = False</msg>
+<status status="PASS" starttime="20220203 01:19:09.873" endtime="20220203 01:19:15.359"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${is_element_visible}' == 'True'</arg>
+<arg>Verify Result Product Is Not In List '${data}'</arg>
+<arg>ELSE</arg>
+<arg>Verify Result Product Is In List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Result Product Is In List" library="search_ui_keywords">
+<kw name="Get Text" library="Selenium2Library">
+<var>${text_result}</var>
+<arg>${search_result_product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:15.387" level="INFO">${text_result} = Ball Point Pen 0.7 mm.</msg>
+<status status="PASS" starttime="20220203 01:19:15.360" endtime="20220203 01:19:15.387"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${result_product}</var>
+<arg>${text_result}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:15.387" level="INFO">${result_product} = BALL POINT PEN 0.7 MM.</msg>
+<status status="PASS" starttime="20220203 01:19:15.387" endtime="20220203 01:19:15.387"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${input_product}</var>
+<arg>${search_input}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:15.387" level="INFO">${input_product} = BALL</msg>
+<status status="PASS" starttime="20220203 01:19:15.387" endtime="20220203 01:19:15.387"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result_product}</arg>
+<arg>${input_product}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220203 01:19:15.387" endtime="20220203 01:19:15.388"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:15.360" endtime="20220203 01:19:15.388"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:15.359" endtime="20220203 01:19:15.388"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:09.872" endtime="20220203 01:19:15.388"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220203 01:19:15.388" endtime="20220203 01:19:15.539"/>
+</kw>
+<doc>To verify user can search product in english language</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:19:01.014" endtime="20220203 01:19:15.539"/>
+</test>
+<test id="s1-s2-t3" name="SEARCH_UI_TC05">
+<kw name="GIVEN Go To Officemate website" library="search_ui_keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220203 01:19:15.542" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x10a9c3af0&gt;</msg>
+<status status="PASS" starttime="20220203 01:19:15.541" endtime="20220203 01:19:15.542"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220203 01:19:15.542" endtime="20220203 01:19:15.543"/>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<arg>Chrome</arg>
+<arg>chrome_options=${opt}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220203 01:19:15.544" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220203 01:19:15.543" endtime="20220203 01:19:17.393"/>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<arg>${officemate_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220203 01:19:17.395" level="INFO">Opening url 'https://www.officemate.co.th/en'</msg>
+<status status="PASS" starttime="20220203 01:19:17.394" endtime="20220203 01:19:22.820"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:15.541" endtime="20220203 01:19:22.820"/>
+</kw>
+<kw name="AND Verify Search Textbox" library="search_ui_keywords">
+<kw name="Close Campaign Modal" library="search_ui_keywords">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:22.822" endtime="20220203 01:19:24.109"/>
+</kw>
+<kw name="Select Frame" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20220203 01:19:24.110" level="INFO">Selecting frame '//iframe[contains (@classname,"sp-fancybox-iframe")]'.</msg>
+<status status="PASS" starttime="20220203 01:19:24.109" endtime="20220203 01:19:24.432"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${close_campaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:24.432" level="INFO">Clicking element '//div[contains(@class,"element-close-button") and contains(@id,"wrap-close-button")]'.</msg>
+<status status="PASS" starttime="20220203 01:19:24.432" endtime="20220203 01:19:24.724"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:22.821" endtime="20220203 01:19:24.724"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:24.724" endtime="20220203 01:19:24.802"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:24.802" endtime="20220203 01:19:24.833"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:22.821" endtime="20220203 01:19:24.833"/>
+</kw>
+<kw name="AND Input Search Text '${TEST_NAME}'" library="search_ui_keywords" sourcename="Input Search Text '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${search_input}</arg>
+<arg>${${data}.search_input}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:19:24.836" level="INFO">${search_input} = BALL</msg>
+<status status="PASS" starttime="20220203 01:19:24.834" endtime="20220203 01:19:24.836"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<arg>${search_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:24.837" level="INFO">Typing text 'BALL' into text field '//input[@class="_5vxBY _32CNv _2MLml"]'.</msg>
+<status status="PASS" starttime="20220203 01:19:24.836" endtime="20220203 01:19:25.152"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:25.152" level="INFO">Clicking element '//div[@id="btn-searchResultPage"]'.</msg>
+<status status="PASS" starttime="20220203 01:19:25.152" endtime="20220203 01:19:25.344"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:24.834" endtime="20220203 01:19:25.345"/>
+</kw>
+<kw name="THEN Verify Result After Search '${TEST_NAME}'" library="search_ui_keywords" sourcename="Verify Result After Search '${data}'">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_element_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${search_notfound}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_notfound}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20220203 01:19:30.930" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220203 01:19:30.931" level="FAIL">Element '//div[@id="pnl-listPageNotFound"]/div[@class="title"]' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20220203 01:19:25.347" endtime="20220203 01:19:30.931"/>
+</kw>
+<msg timestamp="20220203 01:19:30.931" level="INFO">${is_element_visible} = False</msg>
+<status status="PASS" starttime="20220203 01:19:25.346" endtime="20220203 01:19:30.931"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${is_element_visible}' == 'True'</arg>
+<arg>Verify Result Product Is Not In List '${data}'</arg>
+<arg>ELSE</arg>
+<arg>Verify Result Product Is In List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Result Product Is In List" library="search_ui_keywords">
+<kw name="Get Text" library="Selenium2Library">
+<var>${text_result}</var>
+<arg>${search_result_product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:30.959" level="INFO">${text_result} = Ball Point Pen 0.7 mm.</msg>
+<status status="PASS" starttime="20220203 01:19:30.932" endtime="20220203 01:19:30.959"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${result_product}</var>
+<arg>${text_result}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:30.959" level="INFO">${result_product} = BALL POINT PEN 0.7 MM.</msg>
+<status status="PASS" starttime="20220203 01:19:30.959" endtime="20220203 01:19:30.959"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${input_product}</var>
+<arg>${search_input}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:30.960" level="INFO">${input_product} = BALL</msg>
+<status status="PASS" starttime="20220203 01:19:30.960" endtime="20220203 01:19:30.960"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result_product}</arg>
+<arg>${input_product}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220203 01:19:30.960" endtime="20220203 01:19:30.960"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:30.932" endtime="20220203 01:19:30.960"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:30.931" endtime="20220203 01:19:30.960"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:25.345" endtime="20220203 01:19:30.961"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220203 01:19:30.961" endtime="20220203 01:19:31.127"/>
+</kw>
+<doc>To verify user can search product in english language with uppercase character</doc>
+<tag>success</tag>
+<status status="PASS" starttime="20220203 01:19:15.540" endtime="20220203 01:19:31.127"/>
+</test>
+<test id="s1-s2-t4" name="SEARCH_UI_TC08">
+<kw name="GIVEN Go To Officemate website" library="search_ui_keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${opt}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220203 01:19:31.131" level="INFO">${opt} = &lt;selenium.webdriver.chrome.options.Options object at 0x10b452af0&gt;</msg>
+<status status="PASS" starttime="20220203 01:19:31.130" endtime="20220203 01:19:31.131"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${opt}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220203 01:19:31.131" endtime="20220203 01:19:31.131"/>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<arg>Chrome</arg>
+<arg>chrome_options=${opt}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220203 01:19:31.132" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220203 01:19:31.132" endtime="20220203 01:19:32.956"/>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<arg>${officemate_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220203 01:19:32.957" level="INFO">Opening url 'https://www.officemate.co.th/en'</msg>
+<status status="PASS" starttime="20220203 01:19:32.956" endtime="20220203 01:19:38.816"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:31.129" endtime="20220203 01:19:38.816"/>
+</kw>
+<kw name="AND Verify Search Textbox" library="search_ui_keywords">
+<kw name="Close Campaign Modal" library="search_ui_keywords">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:38.818" endtime="20220203 01:19:38.848"/>
+</kw>
+<kw name="Select Frame" library="Selenium2Library">
+<arg>${modal_campaign}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20220203 01:19:38.848" level="INFO">Selecting frame '//iframe[contains (@classname,"sp-fancybox-iframe")]'.</msg>
+<status status="PASS" starttime="20220203 01:19:38.848" endtime="20220203 01:19:38.888"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${close_campaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:38.889" level="INFO">Clicking element '//div[contains(@class,"element-close-button") and contains(@id,"wrap-close-button")]'.</msg>
+<status status="PASS" starttime="20220203 01:19:38.888" endtime="20220203 01:19:39.073"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:38.817" endtime="20220203 01:19:39.073"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:39.074" endtime="20220203 01:19:39.146"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:39.146" endtime="20220203 01:19:39.385"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:38.816" endtime="20220203 01:19:39.385"/>
+</kw>
+<kw name="AND Input Search Text '${TEST_NAME}'" library="search_ui_keywords" sourcename="Input Search Text '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${search_input}</arg>
+<arg>${${data}.search_input}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:19:39.388" level="INFO">${search_input} = AEIOU</msg>
+<status status="PASS" starttime="20220203 01:19:39.386" endtime="20220203 01:19:39.388"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${search_textinput}</arg>
+<arg>${search_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:39.389" level="INFO">Typing text 'AEIOU' into text field '//input[@class="_5vxBY _32CNv _2MLml"]'.</msg>
+<status status="PASS" starttime="20220203 01:19:39.388" endtime="20220203 01:19:39.734"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:39.734" level="INFO">Clicking element '//div[@id="btn-searchResultPage"]'.</msg>
+<status status="PASS" starttime="20220203 01:19:39.734" endtime="20220203 01:19:40.239"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:39.385" endtime="20220203 01:19:40.239"/>
+</kw>
+<kw name="THEN Verify Result After Search '${TEST_NAME}'" library="search_ui_keywords" sourcename="Verify Result After Search '${data}'">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${is_element_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${search_notfound}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${search_notfound}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220203 01:19:40.240" endtime="20220203 01:19:41.321"/>
+</kw>
+<msg timestamp="20220203 01:19:41.321" level="INFO">${is_element_visible} = True</msg>
+<status status="PASS" starttime="20220203 01:19:40.240" endtime="20220203 01:19:41.321"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${is_element_visible}' == 'True'</arg>
+<arg>Verify Result Product Is Not In List '${data}'</arg>
+<arg>ELSE</arg>
+<arg>Verify Result Product Is In List</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Result Product Is Not In List 'SEARCH_UI_TC08'" library="search_ui_keywords" sourcename="Verify Result Product Is Not In List '${data}'">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${text_notfound}</arg>
+<arg>${${data}.text_notfound}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220203 01:19:41.326" level="INFO">${text_notfound} = ขออภัย! ไม่พบสินค้าที่ตรงกับ </msg>
+<status status="PASS" starttime="20220203 01:19:41.323" endtime="20220203 01:19:41.326"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text_result}</var>
+<arg>${search_notfound}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220203 01:19:41.369" level="INFO">${text_result} = ขออภัย! ไม่พบสินค้าที่ตรงกับ "AEIOU"</msg>
+<status status="PASS" starttime="20220203 01:19:41.326" endtime="20220203 01:19:41.369"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${result_product}</var>
+<arg>${text_result}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:41.369" level="INFO">${result_product} = ขออภัย! ไม่พบสินค้าที่ตรงกับ "AEIOU"</msg>
+<status status="PASS" starttime="20220203 01:19:41.369" endtime="20220203 01:19:41.369"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${input_product}</var>
+<arg>${search_input}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220203 01:19:41.370" level="INFO">${input_product} = AEIOU</msg>
+<status status="PASS" starttime="20220203 01:19:41.369" endtime="20220203 01:19:41.370"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result_product}</arg>
+<arg>${text_notfound}"${input_product}"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220203 01:19:41.370" endtime="20220203 01:19:41.370"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:41.322" endtime="20220203 01:19:41.371"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:41.322" endtime="20220203 01:19:41.371"/>
+</kw>
+<status status="PASS" starttime="20220203 01:19:40.239" endtime="20220203 01:19:41.371"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220203 01:19:41.371" endtime="20220203 01:19:41.515"/>
+</kw>
+<doc>To verify user can search product is not in product list</doc>
+<tag>dev</tag>
+<status status="PASS" starttime="20220203 01:19:31.128" endtime="20220203 01:19:41.516"/>
+</test>
+<status status="PASS" starttime="20220203 01:18:46.902" endtime="20220203 01:19:41.517"/>
+</suite>
+<status status="PASS" starttime="20220203 01:18:45.994" endtime="20220203 01:19:41.521"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">dev</stat>
+<stat pass="8" fail="0" skip="0">success</stat>
+</tag>
+<suite>
+<stat pass="9" fail="0" skip="0" id="s1" name="Testcases">Testcases</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Search Api">Testcases.Search Api</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s2" name="Search Ui">Testcases.Search Ui</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

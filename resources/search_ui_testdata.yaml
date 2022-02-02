@@ -1,0 +1,12 @@
+SEARCH_UI_TC01:
+  search_input: "หนังสือ"
+
+SEARCH_UI_TC03:
+  search_input: "ball"
+
+SEARCH_UI_TC05:
+  search_input: "BALL"
+
+SEARCH_UI_TC08:
+  search_input: "AEIOU"
+  text_notfound: "ขออภัย! ไม่พบสินค้าที่ตรงกับ "

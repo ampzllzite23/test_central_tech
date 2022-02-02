@@ -1,0 +1,39 @@
+SEARCH_API_TC01:
+  searchQuery: "หนังสือ"
+  limit: "25"
+  page: "1"
+  x_newrelic_id: "VQMOUF5SABAHVlRQAAIAVFc="
+  x_store_code: "en"
+  https_status: "200"
+
+SEARCH_API_TC02:
+  searchQuery: "book"
+  limit: "25"
+  page: "1"
+  x_newrelic_id: "VQMOUF5SABAHVlRQAAIAVFc="
+  x_store_code: "en"
+  https_status: "200"
+
+SEARCH_API_TC04:
+  searchQuery: "AEIOU"
+  limit: "25"
+  page: "1"
+  x_newrelic_id: "VQMOUF5SABAHVlRQAAIAVFc="
+  x_store_code: "en"
+  https_status: "200"
+
+SEARCH_API_TC05:
+  searchQuery: "book"
+  limit: "ABC"
+  page: "1"
+  x_newrelic_id: "VQMOUF5SABAHVlRQAAIAVFc="
+  x_store_code: "en"
+  https_status: "404"
+
+SEARCH_API_TC11:
+  searchQuery: "book"
+  limit: "25"
+  page: "1"
+  x_newrelic_id: "VQMOUF5SABAHVlRQAAIAVFc="
+  x_store_code: "en"
+  https_status: "404"
